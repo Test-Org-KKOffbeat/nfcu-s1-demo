@@ -33,8 +33,8 @@ MODEL_DIR="${REPO_ROOT}/models/fraud-detector"
 cleanup() { rm -rf "${WORKDIR}"; }
 trap cleanup EXIT
 
-echo "==> Pin training deps to match the inference container (numpy<2, sklearn 1.5.2)"
-echo "    Mismatch here yields ModuleNotFoundError: numpy._core.multiarray at /ping."
+echo "==> Pin training deps to match the inference container (numpy<2, sklearn 1.3.2)"
+echo "    INFO: Mismatch here yields ModuleNotFoundError: numpy._core.multiarray at /ping."
 # --break-system-packages is harmless on non-PEP-668 systems and required on
 # Debian 12+ / Ubuntu 24.04 lab images.
 pip install --quiet --break-system-packages "numpy<2" "scikit-learn==1.3.2" "pandas" "xgboost==1.7.4"
